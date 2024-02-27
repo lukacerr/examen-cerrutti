@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import CountryCheckbox from './components/CountryCheckbox';
 
 function App() {
+  const [countriesSelection, setCountriesSelection] = useState<number[]>([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Luka Cerrutti</h1>
+      <a href="https://www.linkedin.com/in/lce/" target="_blank" rel="noreferrer">
+        LinkedIn
+      </a>
+      <hr />
+      <CountryCheckbox countriesSelection={countriesSelection} setCountriesSelection={setCountriesSelection} />
+      <hr />
+      <span>
+        <b>IDs seleccionadas:</b> {countriesSelection.join(', ')}
+      </span>
+    </>
   );
 }
 
